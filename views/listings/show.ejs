@@ -1,0 +1,228 @@
+<%- layout('layouts/boilerplate') %>
+<script>
+  const location1 = "<%= listing.location %>";
+  const country1 = "<%= listing.country %>";
+</script>
+<body>
+  <div class="row">
+    <div class="col-md-8 offset-md-3">
+      <h3><%= listing.title %></h3>
+    </div>
+    <div class="card col-md-7 offset-md-3 show-card">
+      <img
+        src="<%= listing.image.url %>"
+        alt="listing-image"
+        class="show-img card-img-top"
+      />
+      <div class="card-body p-4 shadow-2 mt-3">
+        <h5 class="card-title mb-3">
+          Owned By: <i class="text-info"><%= listing.owner.username %></i>
+        </h5>
+        <div class="card-text">
+          <p><span class="fw-bold">Category:</span> <%= listing.category %></p>
+          <p><span class="fw-bold">About:</span> <%= listing.description %></p>
+          <p>
+            <span class="fw-bold">Price:</span>
+            <span class="text-success"
+              >&#8377; <%= listing.price.toLocaleString("en-IN") %>/Night</span
+            >
+          </p>
+          <p>
+            <span class="fw-bold">Location:</span> <%= listing.location %>, <%=
+            listing.city %>
+          </p>
+          <p>
+            <span class="fw-bold">State:</span> <%= listing.state %>, <%=
+            listing.country %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <% if(currUser && currUser._id.equals(listing.owner._id)){ %>
+  <div class="btns">
+    <a
+      href="/listings/<%= listing._id %>/edit"
+      class="btn btn-dark col-md-1 offset-md-3 new-btn"
+      >Edit
+    </a>
+
+    <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+      <button class="btn btn-dark offset-md-5">Delete</button>
+    </form>
+  </div>
+  <% } %>
+  <hr class="border border-danger border-2 opacity-50 col-md-9 offset-md-2" />
+  <div class="row">
+    <div class="col-md-7 mb-3 offset-md-3">
+      <% if(currUser){ %>
+      <h4>Leave a comment</h4>
+      <form
+        action="/listings/<%=listing._id%>/reviews"
+        method="post"
+        novalidate
+        class="needs-validation"
+      >
+        <!-- <div class="mb-3">
+          <label for="rating" class="form-lable">Rating</label>
+          <input type="range" name="review[rating]" id="rating" min="1" max="5" class="form-range">
+       </div> -->
+
+        <div class="mb-1">
+          <label for="rating" class="form-lable">Rating</label>
+          <fieldset class="starability-slot">
+            <input
+              type="radio"
+              id="no-rate"
+              class="input-no-rate"
+              name="review[rating]"
+              value="1"
+              checked
+              aria-label="No rating."
+            />
+            <input
+              type="radio"
+              id="first-rate1"
+              name="review[rating]"
+              value="1"
+            />
+            <label for="first-rate1" title="Terrible">1 star</label>
+            <input
+              type="radio"
+              id="first-rate2"
+              name="review[rating]"
+              value="2"
+            />
+            <label for="first-rate2" title="Not good">2 stars</label>
+            <input
+              type="radio"
+              id="first-rate3"
+              name="review[rating]"
+              value="3"
+            />
+            <label for="first-rate3" title="Average">3 stars</label>
+            <input
+              type="radio"
+              id="first-rate4"
+              name="review[rating]"
+              value="4"
+            />
+            <label for="first-rate4" title="Very good">4 stars</label>
+            <input
+              type="radio"
+              id="first-rate5"
+              name="review[rating]"
+              value="5"
+            />
+            <label for="first-rate5" title="Amazing">5 stars</label>
+          </fieldset>
+        </div>
+        <div class="mb-3">
+          <label for="comment">Comment</label>
+          <textarea
+            name="review[comment]"
+            id="comment"
+            rows="4"
+            cols="8"
+            class="form-control"
+            required
+          ></textarea>
+          <div class="invalid-feedback">Please write some comments</div>
+        </div>
+        <button class="btn btn-outline-dark">Submit</button>
+      </form>
+      <% } %>
+    </div>
+  </div>
+  <% if (listing.reviews.length > 0) { %>
+
+  <div class="row offset-md-2">
+    <h5 class="card-title">All Reviews</h5>
+    <br /><br />
+    <% for (review of listing.reviews) { %> <% if (review.comment) { %>
+    <div class="col-md-5 ms-2 mb-3">
+      <div class="card shadow">
+        <span class="d-flex align-items-center gap-2 ms-1 pt-1">
+          <img
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="UserImg"
+            class="userIcon"
+          />
+          <h5 class="m-0"><%= review.author.username %></h5>
+        </span>
+
+        <div class="card-body p-2">
+          <!-- <p class="text-muted">Rating: <strong>/5 ⭐</strong></p> -->
+          <p class="starability-result" data-rating="<%= review.rating %>"></p>
+          <p class="card-text"><%= review.comment %></p>
+          <% if(currUser && currUser._id.equals(review.author._id)){ %>
+          <form
+            action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+            method="post"
+            class="d-flex justify-content-end"
+          >
+            <button class="btn btn-sm btn-dark">DELETE</button>
+          </form>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <% } %> <% } %> <%} %>
+  </div>
+  <div class="row">
+    <h5 class="offset-md-3">Where you’ll be</h5>
+    <div id="map" style="height: 400px" class="col-md-7 offset-md-3 mb-3"></div>
+  </div>
+  <script>
+    // Geocoding to get latitude and longitude
+    async function getCoordinates(address) {
+      try {
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+            address
+          )}`
+        );
+        const data = await response.json();
+        return data.length
+          ? { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon) }
+          : null;
+      } catch (error) {
+        console.error("Error fetching coordinates:", error);
+        return null;
+      }
+    }
+
+    // Initialize the map
+    async function initMap() {
+      const address = "<%= listing.state %>, <%= listing.city %>";
+      const coords = await getCoordinates(address);
+
+      if (!coords) {
+        alert("Unable to find location on map.");
+        return;
+      }
+
+      // Create a map instance
+      const map = L.map("map").setView([coords.lat, coords.lon], 13);
+
+      // Add the tile layer (OpenStreetMap)
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 18,
+        attribution:
+          'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      // Add a marker
+      L.marker([coords.lat, coords.lon])
+        .addTo(map)
+        .bindPopup(
+          "<b><%= listing.title %></b><br>Exact location provided after booking"
+        )
+        .openPopup();
+    }
+
+    // Call the function to initialize the map
+    initMap();
+  </script>
+</body>

@@ -1,0 +1,141 @@
+<%- layout('layouts/boilerplate') %>
+<body>
+  <div class="boxes">
+    <div class="filter-container">
+      <button class="nav-btn left" onclick="scrollLeftBtn()">&#8249;</button>
+      <div class="filter-bar" id="filterBar">
+        <div class="filter-item">
+          <a href="/listings?filter=farms"
+            ><i class="fas fa-tractor"></i><span>Farms</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=icons"
+            ><i class="fas fa-ticket-alt"></i><span>Icons</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=amazing-pools"
+            ><i class="fas fa-swimming-pool"></i><span>Amazing Pools</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=castles"
+            ><i class="fas fa-chess-rook"></i><span>Castles</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=trending"
+            ><i class="fas fa-fire"></i><span>Trending</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=rooms"
+            ><i class="fas fa-bed"></i><span>Rooms</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=amazing-views"
+            ><i class="fas fa-mountain"></i><span>Amazing Views</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=beachfront"
+            ><i class="fas fa-umbrella-beach"></i><span>Beachfront</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=lakefront"
+            ><i class="fas fa-water"></i><span>Lakefront</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=treehouse"
+            ><i class="fas fa-tree"></i><span>Treehouse</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=tiny-homes"
+            ><i class="fas fa-home"></i><span>Tiny Homes</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=top-of-the-world"
+            ><i class="fas fa-flag"></i><span>Top of the World</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=cabins"
+            ><i class="fa-solid fa-house-user"></i><span>Cabins</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=tropical">
+            <i class="fa-solid fa-tree"></i><span>Tropical</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=islands"
+            ><i class="fa-solid fa-mountain-sun"></i><span>Islands</span></a
+          >
+        </div>
+        <div class="filter-item">
+          <a href="/listings?filter=towers"
+            ><i class="fa-solid fa-tower-observation"></i><span>Towers</span></a
+          >
+        </div>
+      </div>
+      <button class="nav-btn right" onclick="scrollRightBtn()">&#8250;</button>
+    </div>
+    <div class="tax-toggle">
+      <div class="form-check-reverse form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
+        />
+        <label class="form-check-label" for="flexSwitchCheckDefault"
+          >Display Total after tex</label
+        >
+      </div>
+    </div>
+  </div>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% for(let listing of allListings) { %>
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+      <div class="card col">
+        <img
+          src="<%= listing.image.url %>"
+          class="card-img-top"
+          alt="listing-image"
+          style="height: 20rem"
+        />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text">
+            <b> <%= listing.title %></b>
+            <br />
+            &#8377; <%= listing.price.toLocaleString("en-IN") %>/Night
+            <i class="tax-info">&nbsp;&nbsp; +18% GST</i>
+          </p>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+  <script>
+    let taxToggle = document.getElementById("flexSwitchCheckDefault");
+    taxToggle.addEventListener("click", () => {
+      let taxInfo = document.getElementsByClassName("tax-info");
+
+      for (info of taxInfo) {
+        if (info.style.display != "inline") {
+          info.style.display = "inline";
+        } else {
+          info.style.display = "none";
+        }
+      }
+    });
+  </script>
+</body>

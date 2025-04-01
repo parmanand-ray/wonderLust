@@ -1,0 +1,53 @@
+<nav class="navbar navbarH navbar-expand-md bg-body-light sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"
+      ><i class="fa-solid fa-compass"></i
+    ></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <div class="navbar-nav ms-auto search-box">
+        <form action="/listings" class="d-flex" role="search" method="get">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search Destination"
+            name="city"
+          />
+          <button class="btn btn-success search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass-location"></i> Search
+          </button>
+        </form>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Share Your Space</a>
+        <% if (!currUser) { %>
+        <a class="nav-link stylish-link" href="/signup">
+          <i class="fas fa-user-plus"></i> Sign Up
+        </a>
+        <a class="nav-link stylish-link" href="/login">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        <% } %> <% if (currUser) { %>
+        <a class="nav-link stylish-link" href="/logout">
+          <i class="fas fa-sign-out-alt" style="color: red"></i> Logout
+        </a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

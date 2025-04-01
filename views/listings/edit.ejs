@@ -1,0 +1,159 @@
+<%- layout('layouts/boilerplate') %>
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h2 class="text-center mb-4">Update Listing</h2>
+      <form
+        action="/listings/<%= listing._id %>?_method=PUT"
+        method="post"
+        novalidate
+        class="needs-validation"
+        enctype="multipart/form-data"
+      >
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="listing[title]"
+            class="form-control"
+            value="<%= listing.title %>"
+            required
+          />
+          <div class="invalid-feedback">Title should be valid</div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            id="description"
+            name="listing[description]"
+            class="form-control"
+            rows="4"
+            required
+          >
+<%= listing.description %></textarea
+          >
+          <div class="invalid-feedback">Plese enter short description</div>
+        </div>
+        <div class="mb-3">
+          Original Image <br />
+          <img src="<%= originalImg %>" style="height: 175px; width: 150px" />
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload New Image</label>
+          <input
+            type="file"
+            id="image"
+            name="listing[image]"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="categorySelect" class="form-label">Category</label>
+          <select
+            class="form-select"
+            id="categorySelect"
+            name="listing[category]"
+            required
+          >
+            <% if (listing.category) { %>
+            <option value="<%= listing.category %>" selected>
+              <%= listing.category %>
+            </option>
+            <% } %>
+            <option value="farms">Farms</option>
+            <option value="icons">Icons</option>
+            <option value="amazing-pools">Amazing Pools</option>
+            <option value="castles">Castles</option>
+            <option value="trending">Trending</option>
+            <option value="rooms">Rooms</option>
+            <option value="amazing-views">Amazing Views</option>
+            <option value="beachfront">Beachfront</option>
+            <option value="lakefront">Lakefront</option>
+            <option value="treehouse">Treehouse</option>
+            <option value="tiny-homes">Tiny Homes</option>
+            <option value="top-of-the-world">Top of the World</option>
+            <option value="cabins">Cabins</option>
+            <option value="tropical">Tropical</option>
+            <option value="islands">Islands</option>
+            <option value="towers">Towers</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              id="price"
+              name="listing[price]"
+              class="form-control"
+              value="<%= listing.price %>"
+              required
+            />
+            <div class="invalid-feedback">Price should be valid</div>
+          </div>
+          <div class="mb-3 col-md-8">
+            <label for="location" class="form-label">Location</label>
+            <input
+              type="text"
+              id="location"
+              name="listing[location]"
+              class="form-control"
+              value="<%= listing.location %>"
+              required
+            />
+            <div class="invalid-feedback">Location should be valid</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Country</label>
+            <input
+              id="price"
+              name="listing[country]"
+              value="<%= listing.country %>"
+              class="form-control"
+              placeholder="India"
+              required
+            />
+            <div class="invalid-feedback">Country should be valid</div>
+          </div>
+          <div class="mb-3 col-md-4">
+            <label for="location" class="form-label">State</label>
+            <input
+              type="text"
+              id="location"
+              name="listing[state]"
+              value="<%= listing.state %>"
+              class="form-control"
+              placeholder="Bihar"
+              required
+            />
+            <div class="invalid-feedback">State should be valid</div>
+          </div>
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">City</label>
+            <input
+              id="price"
+              name="listing[city]"
+              class="form-control"
+              placeholder="jaipur"
+              value="<%= listing.city %>"
+              required
+            />
+            <div class="invalid-feedback">City should be valid</div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-dark mb-3 new-btn">
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

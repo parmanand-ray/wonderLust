@@ -1,0 +1,505 @@
+/* ✅ Reset Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ✅ Body Styling */
+body {
+    background-color: #f8f9fa; /* Light Gray */
+    color: #2c3e50; /* Dark Text */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    overflow-x: hidden;
+}
+.container{
+    flex: 1;
+}
+
+/* ✅ Main Content - Push Footer to Bottom */
+main {
+    flex: 1; /* Keeps content dynamic */
+    padding: 20px;
+}
+
+/* ✅ Ensure Footer Stays at the Bottom */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* ✅ Responsive Typography */
+h1, h2, h3 {
+    color: #34495e;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* ✅ Make Links Stand Out */
+a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* ✅ Responsive Design Tweaks */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
+
+/* Navbar Styling */
+.navbarH {
+    background-color: #2c3e50 !important; /* Dark background */
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100% !important;
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    color: #f1c40f !important; /* Gold color */
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+    color: #e67e22 !important; /* Orange hover effect */
+}
+
+.navbar-nav .nav-link {
+    color: #ecf0f1 !important; /* Light text */
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #3498db !important; /* Blue hover effect */
+}
+
+/* Toggler Button */
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-color: #ecf0f1 !important;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px;
+    }
+}
+
+
+/* footer Style */
+footer {
+    background-color: #2c3e50; /* Dark background */
+    color: #ecf0f1; /* Light text color */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.f-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.socials i {
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.socials i:hover {
+    color: #3498db; /* Hover effect */
+}
+
+.company-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+.links a:hover {
+    color: #3498db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .f-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .socials {
+        margin-bottom: 10px;
+    }
+
+    .links {
+        margin-top: 10px;
+    }
+}
+/*card */
+.card{
+    border: none !important;
+    margin-bottom: 2rem ;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding: 0 !important;
+}
+.card-text p{
+    font-weight: 400 !important;
+}
+.listing-link{
+    text-decoration: none;
+}
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+/*New button*/
+.new-btn{
+    border: none !important;
+    background-color: rgb(174, 58, 58) !important;
+}
+/*show page*/
+.show-img{
+    height: 30vh;
+}
+.btns{
+    display: flex;
+}
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+/*error page*/
+.error-container {
+    text-align: center;
+    padding: 40px;
+    background: rgb(200, 200, 200);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 40%;
+    margin: 5% 30% ;
+}
+@media(max-width:770px){
+    .error-container {
+        text-align: center;
+        padding: 10px;
+        background: rgb(200, 200, 200);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        max-width: 90%;
+        margin: 5% 5% ;
+    }
+    .new-btn{
+        width: 60px !important;
+    }
+}
+.error-icon {
+    font-size: 50px;
+    color: #dc3545;
+}
+.btn-custom {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn-custom:hover {
+    background-color: #bb2d3b;
+    color: white;
+}
+
+/*user img*/
+.userIcon{
+    height: 45px !important;
+    width: 45px !important;
+    border: solid 2px red;
+    border-radius: 50% !important; /* 50px ki jagah 50% use karein */
+    object-fit: cover; /* Image ko proper crop karne ke liye */
+    padding: 2px;
+}
+
+/*login logout*/
+
+  .stylish-link i {
+    margin-right: 5px;
+  }
+
+  /*filters */
+
+    .filter-container {
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 75%;
+      margin: 20px;
+      overflow: hidden;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+      height: 5rem;
+      background-color: #f8f9fa;
+      border-radius: 20px;
+      border-bottom: 1px solid #ddd;
+      overflow-x: hidden; /* Hide scroll bar */
+      white-space: nowrap;
+      scroll-behavior: smooth;
+    }
+
+    .filter-item {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      flex-shrink: 0;
+    }
+
+    .filter-item:hover,
+    .filter-item.active {
+      color: black;
+      font-weight: bold;
+    }
+
+    .filter-item i {
+      font-size: 1.5rem;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .left {
+      left: 1%;
+    }
+
+    .right {
+      right: 1%;
+    }
+
+    .nav-btn:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Scroll bar hidden */
+    .filter-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .filter-item a {
+    text-decoration: none !important;
+   color: inherit;
+    }
+  .boxes{
+    display: flex;
+    align-items: center;  /* Aligns items vertically at the center */
+    justify-content: space-between;  /* Optionally space items apart */
+  }
+  /* Ensure the tax toggle takes only necessary space */
+.tax-toggle {
+    margin-left: 20px;  /* Optional, space between filter container and tax toggle */
+    border: 1px solid rgb(144, 138, 138);
+    border-radius: 15px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+  .tax-toggle:hover{
+    border: 1px solid rgb(0, 0, 0);
+  }
+  
+  /* Optional: style the form-check label for alignment */
+  .tax-toggle label {
+    margin-left: 10px; /* Adjust margin as per your needs */
+  }
+  .tax-info{
+    display: none;
+  }
+  .search-btn{
+    background-color: #fe424d !important;
+    color: #fff;
+     width: 150px;
+        display: flex; /* Use flexbox to align items horizontally */
+        align-items: center; /* Vertically center the content */
+        justify-content: center; /* Center content (optional) */
+        gap: 8px; /* Add space between the icon and text */
+        border-radius: 25px;
+  }
+
+  .search-btn i{
+    font-size: 1.2rem; /* Adjust the size of the icon */
+  }
+  /* Media Queries for responsiveness */
+
+/* For tablets and small desktop screens */
+@media (max-width: 1024px) {
+    .filter-container {
+      width: 90%;
+    }
+  
+    .filter-bar {
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+  
+    .tax-toggle {
+      margin-left: 10px; /* Adjust space between filter container and tax toggle */
+      height: 2.5rem;
+    }
+  
+    .nav-btn {
+      width: 35px;
+      height: 35px;
+    }
+  
+    .filter-item {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* For mobile screens (portrait) */
+  @media (max-width: 768px) {
+    .filter-container {
+      width: 100%;
+      margin: 10px 0;
+    }
+  
+    .filter-bar {
+      gap: 1rem;
+      padding: 1rem;
+      height: 4rem;
+    }
+  
+    .tax-toggle {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    .tax-toggle label {
+      font-size: 0.9rem;
+    }
+  
+    .nav-btn {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .filter-item {
+      font-size: 0.75rem;
+    }
+  
+    .filter-item i {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* For very small mobile screens (portrait mode) */
+  @media (max-width: 480px) {
+    .filter-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .filter-bar {
+      padding: 1rem;
+      width: 100%;
+      overflow-x: auto;
+    }
+  
+    .nav-btn {
+      display: none; /* Hide nav buttons on very small screens */
+    }
+  
+    .tax-toggle {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    .tax-toggle label {
+      font-size: 0.85rem;
+    }
+  
+    .filter-item {
+      font-size: 0.7rem;
+      padding: 5px;
+    }
+  
+    .filter-item i {
+      font-size: 1rem;
+    }
+  }
+  
