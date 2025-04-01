@@ -1,5 +1,5 @@
 # Wonderlust
-
+deployed link - https://wonderlust-jq4y.onrender.com
 Wonderlust is a room renting and listing platform that connects users looking for shared accommodations. Users can explore various types of rooms and listings, rate them, and get in touch with the owners to find the perfect place to stay.
 
 Whether you're looking for a cozy cabin or a luxurious beachfront property, Wonderlust makes it easy to find the right fit for your next stay.
